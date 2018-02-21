@@ -1,7 +1,9 @@
+# for gui
 from tkinter import *
 import move as mv
 from tkinter import messagebox
-#window = Tk()
+
+# The 3x3 squres
 class ttt_gui:
     def aiMove(self,r,c):
         #print (r,c)
@@ -40,13 +42,16 @@ class ttt_gui:
                 return 'O'
             else:
                 return 'D'
-
+    """        
+    To place image to the right place for next move.
+    """
     def setImage(self,squre,new_image,r,c):
         if self.board[r][c] is not ' ':
             return
         squre.configure(image = new_image)
         self.board[r][c] = self.player
         self.isWin = self.Win_Lose(self.board)
+        # message information is set
         if self.isWin is not ' ':
             if self.isWin is 'O':
                 messagebox.showinfo(title= "O Win",message = "You win!!!")
@@ -65,6 +70,7 @@ class ttt_gui:
         self.board[next_move[0]][next_move[1]] = self.ai
         self.aiMove(next_move[0],next_move[1])
         self.isWin = self.Win_Lose(self.board)
+        #If no more move is allowed or decide the winner.The message will come out
         if self.isWin is not ' ':
             if self.isWin is 'O':
                 messagebox.showinfo(title="O Win", message="You lose!!!")
@@ -77,6 +83,7 @@ class ttt_gui:
                 return
         #print(next_move)
 
+    # Initialize the all suqres
     def __init__(self,window,player):
         self.cross = PhotoImage(file='a.png')
         self.circle = PhotoImage(file='b.png')
@@ -91,10 +98,9 @@ class ttt_gui:
             self.aiImage = self.cross
             self.playImage = self.circle
             self.ai = 'X'
-        #self.play_move = [-1,-1]
+
         self.squre0_0 = Button(window , image = self.space , command =lambda: self.setImage(self.squre0_0,self.playImage,0,0))
         self.squre0_0.grid(column=0, row=0, sticky=N + S + E + W)
-        #self.squre0_0.config(image = self.circle,width = "10",height="10")
 
         self.squre0_1 = Button(window, image = self.space , command =lambda: self.setImage(self.squre0_1,self.playImage,0,1))
         self.squre0_1.grid(column=1, row=0, sticky=N + S + E + W)
