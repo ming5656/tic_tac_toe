@@ -2,7 +2,7 @@ Play tic tac to using tkinter
 
 # How to play
 Linux command line:
-python tic_tac_toe.py
+python3 tic_tac_toe.py
 
 Submit your choose
 
