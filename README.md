@@ -1,4 +1,4 @@
-Play tic tac to using tkinter
+Play tic tac toe using tkinter
 
 # How to play
 Linux command line:
