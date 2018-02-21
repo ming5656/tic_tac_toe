@@ -1,6 +1,6 @@
 Play tic tac to using tkinter
 
-#How to play
+# How to play
 Linux command line:
 python tic_tac_toe.py
 
